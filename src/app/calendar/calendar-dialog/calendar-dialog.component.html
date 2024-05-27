@@ -1,0 +1,41 @@
+<div class="dialog-wrapper">
+  <div class="dialog-wrapper__content">
+    <h1>Add new event</h1>
+    <div class="dialog-wrapper__content--form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Event name</mat-label>
+        <input
+          matInput
+          [(ngModel)]="eventName"
+          type="text"
+          (ngModelChange)="validateForm()"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Event color</mat-label>
+        <mat-select
+          [(ngModel)]="eventColor"
+          (ngModelChange)="validateForm()"
+          required
+        >
+          @for (color of colors; track $index) {
+          <mat-option [value]="color.value">{{ color.viewValue }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="dialog-wrapper__content--buttons">
+      <button mat-stroked-button (click)="onClose()">Close</button>
+      <button
+        mat-stroked-button
+        color="primary"
+        (click)="addEvent()"
+        [disabled]="enableAddBtn"
+      >
+        Add event
+      </button>
+    </div>
+  </div>
+</div>

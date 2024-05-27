@@ -1,8 +1,28 @@
+@if (showDialogAddEvent) {
+<app-calendar-dialog (close)="closeDialogEvent($event)" (eventData)="getEventData($event)"></app-calendar-dialog>
+}
+
+<mat-grid-list cols="7" rowHeight="30px">
+  @for (day of weekDays; track $index) {
+  <mat-grid-tile>{{ day }}</mat-grid-tile>
+  }
+</mat-grid-list>
+
 <mat-grid-list cols="7">
-  <mat-grid-tile-header>MON</mat-grid-tile-header>
-  <mat-grid-tile-footer>sdfjhsdfkjshd</mat-grid-tile-footer>
-  <mat-grid-tile>
-    <div>calerndar</div>
+  @for (data of calendarData; track $index) {
+  <mat-grid-tile (click)="addEvent($index)">
+    <mat-grid-tile-header>{{ data.day }}</mat-grid-tile-header>
+    <div class="grid-wrapper">
+      @for (event of data.events; track $index) {
+      <p
+        [ngStyle]="{ 'background-color': event.color }"
+        class="grid-wrapper__event"
+        (click)="arrastrar($event)"
+      >
+        {{ event.name }}
+      </p>
+      }
+    </div>
   </mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
+  }
 </mat-grid-list>
