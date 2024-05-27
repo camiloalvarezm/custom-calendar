@@ -1,0 +1,30 @@
+<div class="calendar-wrapper">
+  <div class="calendar-wrapper__left">
+    <button mat-stroked-button color="primary">Today</button>
+    <div>
+      <button mat-button>
+        <mat-icon aria-hidden="false" fontIcon="keyboard_arrow_left"></mat-icon>
+      </button>
+      <button mat-button>
+        <mat-icon
+          aria-hidden="false"
+          fontIcon="keyboard_arrow_right"
+        ></mat-icon>
+      </button>
+    </div>
+    <span>May 2024</span>
+  </div>
+
+  <div class="calendar-wrapper__right">
+    <button mat-stroked-button [matMenuTriggerFor]="menu" color="primary">
+      Month
+      <mat-icon aria-hidden="false" fontIcon="keyboard_arrow_down"></mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Day</button>
+      <button mat-menu-item>Week</button>
+      <button mat-menu-item>Month</button>
+      <button mat-menu-item>Year</button>
+    </mat-menu>
+  </div>
+</div>
