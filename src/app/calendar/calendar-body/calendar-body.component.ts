@@ -35,7 +35,7 @@ export class CalendarBodyComponent implements OnInit {
     this.dayId = index;
   }
 
-  arrastrar(event: MouseEvent) {
+  onDrag(event: MouseEvent) {
     event.stopPropagation();
   }
 
