@@ -11,15 +11,22 @@
   }
 </mat-grid-list>
 
-<mat-grid-list cols="7" rowHeight="160px">
+<mat-grid-list cols="7" rowHeight="160px" cdkDropListGroup>
   @for (data of calendarData; track $index) {
-  <mat-grid-tile (click)="addEvent($index)">
+  <mat-grid-tile
+    (click)="addEvent($index)"
+    cdkDropList
+    [cdkDropListData]="data.events"
+    (cdkDropListDropped)="drop($event)"
+  >
     <mat-grid-tile-header>{{ data.day }}</mat-grid-tile-header>
     <div class="grid-wrapper">
       @for (event of data.events; track $index) {
       <p
         [ngStyle]="{ 'background-color': event.color }"
         class="grid-wrapper__event"
+        (click)="$event.stopPropagation()"
+        cdkDrag
       >
         {{ event.name }}
       </p>

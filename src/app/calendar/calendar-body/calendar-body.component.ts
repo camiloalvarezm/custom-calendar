@@ -4,10 +4,25 @@ import { CalendarData } from '../../core/models/calendar-data';
 import { CommonModule } from '@angular/common';
 import { CalendarDialogComponent } from '../calendar-dialog/calendar-dialog.component';
 import { CalendarEvent } from '../../core/models/calendar-data';
+import {
+  CdkDrag,
+  CdkDragDrop,
+  CdkDropList,
+  CdkDropListGroup,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-calendar-body',
   standalone: true,
-  imports: [MatGridListModule, CommonModule, CalendarDialogComponent],
+  imports: [
+    MatGridListModule,
+    CommonModule,
+    CalendarDialogComponent,
+    CdkDropListGroup,
+    CdkDropList,
+    CdkDrag,
+  ],
   templateUrl: './calendar-body.component.html',
   styleUrl: './calendar-body.component.css',
 })
@@ -46,5 +61,22 @@ export class CalendarBodyComponent implements OnInit {
   getEventData(event: CalendarEvent) {
     this.closeDialogEvent(false);
     this.calendarData[this.dayId].events.push(event);
+  }
+
+  drop(event: CdkDragDrop<CalendarEvent[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
   }
 }
