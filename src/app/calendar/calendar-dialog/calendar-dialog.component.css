@@ -11,10 +11,14 @@
   align-items: center;
 }
 
+h1 {
+  color: #039be5;
+}
+
 .dialog-wrapper__content {
   background-color: white;
   width: 400px;
-  height: 250px;
+  height: 300px;
   border: none;
   border-radius: 10px;
   display: flex;
@@ -32,4 +36,11 @@
 .dialog-wrapper__content--form {
   display: flex;
   flex-flow: column nowrap;
+}
+
+.dialog-current-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
 }

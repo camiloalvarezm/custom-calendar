@@ -32,6 +32,7 @@ export class CalendarBodyComponent implements OnInit {
   calendarData: CalendarData[] = [];
   showDialogAddEvent = false;
   dayId = 0;
+  day = '1';
 
   constructor() {}
 
@@ -46,9 +47,10 @@ export class CalendarBodyComponent implements OnInit {
     this.calendarData.push({ day: '1', events: [] }, { day: '2', events: [] });
   }
 
-  addEvent(index: number) {
+  addEvent(index: number, day: string) {
     this.showDialogAddEvent = true;
     this.dayId = index;
+    this.day = day;
   }
 
   onKeydown(event: KeyboardEvent) {

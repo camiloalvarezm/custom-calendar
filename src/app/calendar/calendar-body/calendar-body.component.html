@@ -2,6 +2,7 @@
 <app-calendar-dialog
   (closeDialog)="closeDialogEvent($event)"
   (eventData)="getEventData($event)"
+  [day]="day"
 ></app-calendar-dialog>
 }
 
@@ -14,7 +15,7 @@
 <mat-grid-list cols="7" rowHeight="160px" cdkDropListGroup>
   @for (data of calendarData; track $index) {
   <mat-grid-tile
-    (click)="addEvent($index)"
+    (click)="addEvent($index, data.day)"
     cdkDropList
     [cdkDropListData]="data.events"
     (cdkDropListDropped)="drop($event)"
