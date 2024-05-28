@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { CalendarData } from '../../core/models/calendar-data';
+import { MatIconModule } from '@angular/material/icon';
+import { CalendarData, CalendarEvent } from '../../core/models/calendar-data';
 import { CommonModule } from '@angular/common';
 import { CalendarDialogComponent } from '../calendar-dialog/calendar-dialog.component';
-import { CalendarEvent } from '../../core/models/calendar-data';
 import {
   CdkDrag,
   CdkDragDrop,
@@ -17,6 +17,7 @@ import {
   standalone: true,
   imports: [
     MatGridListModule,
+    MatIconModule,
     CommonModule,
     CalendarDialogComponent,
     CdkDropListGroup,
@@ -78,5 +79,16 @@ export class CalendarBodyComponent implements OnInit {
         event.currentIndex
       );
     }
+  }
+
+  deleteEvent(day: string, eventName: string, event: MouseEvent) {
+    event.stopPropagation();
+    const dayIndex = this.calendarData.findIndex(
+      (data: CalendarData) => data.day === day
+    );
+    const eventIndex = this.calendarData[dayIndex].events.findIndex(
+      (event: CalendarEvent) => event.name === eventName
+    );
+    this.calendarData[dayIndex].events.splice(eventIndex, 1);
   }
 }

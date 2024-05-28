@@ -21,7 +21,7 @@
   >
     <mat-grid-tile-header>{{ data.day }}</mat-grid-tile-header>
     <div class="grid-wrapper">
-      @for (event of data.events; track $index) {
+      @for (event of data.events; track event.name) {
       <p
         [ngStyle]="{ 'background-color': event.color }"
         class="grid-wrapper__event"
@@ -30,7 +30,12 @@
         (keydown)="onKeydown($event)"
         tabindex="0"
       >
-        {{ event.name }}
+        <span>{{ event.name }}</span>
+        <mat-icon
+          aria-hidden="false"
+          fontIcon="close"
+          (click)="deleteEvent(data.day, event.name, $event)"
+        ></mat-icon>
       </p>
       }
     </div>
