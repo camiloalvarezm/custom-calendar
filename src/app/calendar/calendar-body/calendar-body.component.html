@@ -8,7 +8,7 @@
   }
 </mat-grid-list>
 
-<mat-grid-list cols="7">
+<mat-grid-list cols="7" rowHeight="160px">
   @for (data of calendarData; track $index) {
   <mat-grid-tile (click)="addEvent($index)">
     <mat-grid-tile-header>{{ data.day }}</mat-grid-tile-header>
