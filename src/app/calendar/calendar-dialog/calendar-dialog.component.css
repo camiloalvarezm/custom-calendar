@@ -13,7 +13,7 @@
 
 .dialog-wrapper__content {
   background-color: white;
-  width: 300px;
+  width: 400px;
   height: 250px;
   border: none;
   border-radius: 10px;
@@ -24,12 +24,12 @@
 }
 
 .dialog-wrapper__content--buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 .dialog-wrapper__content--form {
-    display: flex;
-    flex-flow: column nowrap;
+  display: flex;
+  flex-flow: column nowrap;
 }
