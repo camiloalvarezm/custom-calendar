@@ -50,7 +50,7 @@ export class CalendarBodyComponent implements OnInit {
     this.dayId = index;
   }
 
-  onDrag(event: MouseEvent) {
+  onKeydown(event: KeyboardEvent) {
     event.stopPropagation();
   }
 

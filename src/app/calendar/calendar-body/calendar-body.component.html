@@ -27,6 +27,8 @@
         class="grid-wrapper__event"
         (click)="$event.stopPropagation()"
         cdkDrag
+        (keydown)="onKeydown($event)"
+        tabindex="0"
       >
         {{ event.name }}
       </p>
