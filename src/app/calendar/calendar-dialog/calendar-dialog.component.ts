@@ -4,11 +4,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { CalendarEvent } from '../../core/models/calendar-data';
 
 interface EventColor {
   value: string;
   viewValue: string;
 }
+
 
 @Component({
   selector: 'app-calendar-dialog',
@@ -27,8 +29,8 @@ export class CalendarDialogComponent {
   eventName: string = '';
   eventColor: string = '';
   enableAddBtn = true;
-  @Output() close = new EventEmitter<boolean>();
-  @Output() eventData = new EventEmitter<object>();
+  @Output() closeDialog = new EventEmitter<boolean>();
+  @Output() eventData = new EventEmitter<CalendarEvent>();
 
   colors: EventColor[] = [
     { value: 'lightskyblue', viewValue: 'Blue' },
@@ -42,7 +44,7 @@ export class CalendarDialogComponent {
   }
 
   onClose() {
-    this.close.emit(false);
+    this.closeDialog.emit(false);
   }
 
   validateForm() {

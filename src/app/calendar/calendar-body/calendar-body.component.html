@@ -1,5 +1,5 @@
 @if (showDialogAddEvent) {
-<app-calendar-dialog (close)="closeDialogEvent($event)" (eventData)="getEventData($event)"></app-calendar-dialog>
+<app-calendar-dialog (closeDialog)="closeDialogEvent($event)" (eventData)="getEventData($event)"></app-calendar-dialog>
 }
 
 <mat-grid-list cols="7" rowHeight="30px">

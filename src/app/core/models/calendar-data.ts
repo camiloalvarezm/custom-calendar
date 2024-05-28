@@ -1,9 +1,9 @@
 export interface CalendarData {
   day: string;
-  events: Events[];
+  events: CalendarEvent[];
 }
 
-interface Events {
+export interface CalendarEvent {
   name: string;
   color: string;
 }

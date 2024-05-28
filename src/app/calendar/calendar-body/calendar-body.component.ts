@@ -3,7 +3,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { CalendarData } from '../../core/models/calendar-data';
 import { CommonModule } from '@angular/common';
 import { CalendarDialogComponent } from '../calendar-dialog/calendar-dialog.component';
-
+import { CalendarEvent } from '../../core/models/calendar-data';
 @Component({
   selector: 'app-calendar-body',
   standalone: true,
@@ -27,10 +27,7 @@ export class CalendarBodyComponent implements OnInit {
     for (let i = 1; i <= 31; i++) {
       this.calendarData.push({ day: i.toString(), events: [] });
     }
-    this.calendarData.push(
-      { day: '1', events: [] },
-      { day: '2', events: [] }
-    );
+    this.calendarData.push({ day: '1', events: [] }, { day: '2', events: [] });
   }
 
   addEvent(index: number) {
@@ -46,7 +43,7 @@ export class CalendarBodyComponent implements OnInit {
     this.showDialogAddEvent = event;
   }
 
-  getEventData(event: any) {
+  getEventData(event: CalendarEvent) {
     this.closeDialogEvent(false);
     this.calendarData[this.dayId].events.push(event);
   }
