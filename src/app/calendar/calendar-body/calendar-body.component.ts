@@ -36,7 +36,7 @@ export class CalendarBodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.calendarData.push(
-      { day: '29', events: [{ name: 'An event', color: 'lightskyblue' }] },
+      { day: '29', events: [{ name: 'An event', color: '#039be5' }] },
       { day: '30', events: [] }
     );
     for (let i = 1; i <= 31; i++) {

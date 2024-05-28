@@ -11,7 +11,6 @@ interface EventColor {
   viewValue: string;
 }
 
-
 @Component({
   selector: 'app-calendar-dialog',
   standalone: true,
@@ -33,9 +32,9 @@ export class CalendarDialogComponent {
   @Output() eventData = new EventEmitter<CalendarEvent>();
 
   colors: EventColor[] = [
-    { value: 'lightskyblue', viewValue: 'Blue' },
-    { value: 'lightsalmon', viewValue: 'Red' },
-    { value: 'lightgreen', viewValue: 'Green' },
+    { value: '#039be5', viewValue: 'Blue' },
+    { value: '#d50000', viewValue: 'Red' },
+    { value: '#33b679', viewValue: 'Green' },
   ];
 
   addEvent() {
@@ -48,6 +47,6 @@ export class CalendarDialogComponent {
   }
 
   validateForm() {
-    this.enableAddBtn = this.eventName === '' || this.eventColor === ''
+    this.enableAddBtn = this.eventName === '' || this.eventColor === '';
   }
 }
